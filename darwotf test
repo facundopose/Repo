@@ -1,0 +1,293 @@
+First Exercice
+
+
+Workflow
+Enter a positive integer in the text box, then press the 'Calculate' button, below a message is shown with the factorial operation result
+Leave blank the text box, then press then press the 'Calculate', below a message is shown asking to enter an integer, the text box border turns red
+Enter a negative integer in the text box, then press then press the 'Calculate', below a message is shown asking to enter an integer, the text box border turns red
+Enter a foat number in the text box, then press then press the 'Calculate', below a message is shown asking to enter an integer, the text box border turns red
+Enter a alfanumeric and/or special characters in the text box, then press then press the 'Calculate', below a message is shown asking to enter an integer, the text box border turns red
+
+Bugs:
+
+When a negative integer is entered in the textbox and then the 'Calculate' button is pressed, there is no result or error message, also the textbox border doesn't turns red. There is a 500 error on the console
+Medium severity
+
+When a number with the format *.0 (pe. 2.0) is entered in the textbox and then the 'Calculate' button is pressed, there is no result or error message, also the textbox border doesn't turns red. There is a 500 error on the console
+Low Severity
+
+When a number greater than 989 is entered in the textbox and then the 'Calculate' button is pressed, there is no result or error message, also the textbox border doesn't turns red. There is a 500 error on the console
+Medium Severity
+
+After a correct operation (pe: enter number 1 and press 'Calculate' button, the result is 1), if a negative number or a number with the format *.0 or greater than 989 is entered there is no result or error message, also the textbox border doesn't turns red. The result of the previous operations remains in the screen.
+High Severity
+
+There is no character limit for the input text box
+Low severity
+
+Locators
+
+Relative Xpath: //input[@id='number'][@style="border: 2px solid red;"]
+Absolute Xpath: /html[1]/body[1]/div[1]/div[1]/div[1]/p[1]/input[1][@id='number'][@style="border: 2px solid red;"]
+CSS: input[name='number']
+
+Console message:
+Hello! I am in the done part of the ajax call
+
+API Call
+
+POST
+http://qainterview.pythonanywhere.com/factorial?number=2	
+
+Accept: */*
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://qainterview.pythonanywhere.com
+Referer: http://qainterview.pythonanywhere.com/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36
+X-Requested-With: XMLHttpRequest
+
+---
+
+Second Exercice
+
+Manual test cases:
+
+add a new computer with valid computer name, introduced date, discontinued date and company
+	
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: a new computer record is created
+	
+add a new computer without name
+
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Leave empty the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the computer name is required
+	
+add a new computer with an invalid introduce date
+
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter an invalid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the introduced date is invalid
+	
+add a new computer with an invalid discontinued date
+
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a invalid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the discontinued date is invalid
+
+add a new computer with an discontinued date older than a introduced date
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox (pe: 15/08/2019)
+	Enter a valid discontinued date older than the introduced date, in the 'Discontinued date' textbox (pe: 27/01/2017)
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the introduced date and/or the discontinued date are invalid
+
+
+add a new computer with valid data then cancel de operation
+
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	press the 'Add a new computer' button
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "Cancel" button
+	
+	Expected result: the application goes back to the computer list screen
+
+modify a computer with valid computer name, introduced date, discontinued date and company
+
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: a new computer record is created
+	
+modify a computer without name
+	
+	open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Leave empty the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the computer name is required
+
+modify a computer with an invalid introduce date
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter an invalid introduced date in the 'Introduced date' textbox
+	Enter a valid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the introduced date is invalid
+
+modify a computer with an invalid discontinued date
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox
+	Enter a invalid discontinued date in the 'Discontinued date' textbox
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the discontinued date is invalid
+
+
+modify a computer with an introduce date older than a discontinued date
+	
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Enter a valid computer name in the 'Computer Name' textbox
+	Enter a valid introduced date in the 'Introduced date' textbox (pe: 15/08/2019)
+	Enter a valid discontinued date older than the introduced date, in the 'Discontinued date' textbox (pe: 27/01/2017)
+	Choose a company from the company drop down list
+	Press the "create this computer" button
+	
+	Expected result: The application should inform that the introduced date and/or the discontinued date are invalid
+
+
+delete a computer
+	
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	Click on the computer name you want to modify
+	Press the 'Delete this computer' button
+	
+	Expected result: The selected computer is deleted from the table
+	
+filter computer by name
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a computer name in the filter textbox
+	Press the 'Filter by name' button
+	
+	Expected result: The table shows the registers that match the filter criteria
+	
+	
+filter computer by introduced date
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter an introduced date in the filter textbox
+	Press the 'Filter by name' button
+	
+	Expected result: The filter only works with computer names
+	
+filter computer by discontinued date
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a discontubued date in the filter textbox
+	Press the 'Filter by name' button
+	
+	Expected result: The filter only works with computer names
+	
+filter computer by company
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Enter a company name in the filter textbox
+	Press the 'Filter by name' button
+	
+	Expected result: The filter only works with computer names
+	
+order table by computer name column
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Click on the column title 'Computer Name'
+	
+	Expected result: the table should order by column name
+	
+order table by introduced date column
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Click on the column title 'Introduced'
+	
+	Expected result: the table should order by Introduced date
+	
+order table by discontinued date column
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Click on the column title 'Discontinued'
+	
+	Expected result: the table should order by Discontinued date
+	
+order table by company column
+
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Click on the column title 'Company'
+	
+	Expected result: the table should order by Company name
+
+
+move to the new page
+	
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Press the 'Next' button to move to the next page
+	
+	Expected result: The table jump to the next page
+
+move to the previous page
+
+	
+	Open the application URL http://computerdatabase.herokuapp.com/computers 
+	Press the 'Next' button to move to the next page
+	Press the 'Previous' button
+	
+	Expected result: The table jump to the previous page
+	
+Regression Test Cases:
+
+Add a new computer with valid computer name, introduced date, discontinued date and company
+Modify a computer with valid computer name, introduced date, discontinued date and company
+Delete a computer
+Filter computer by name
